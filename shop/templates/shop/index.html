@@ -2,6 +2,33 @@
 
 
 {% block title %}
-    
+    Home Page | Ecom Website
 {% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="media/{{product.image}}" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                {{product.title}}
+                            </h3>
+                            <p class="card-text">
+                                $ {{product.price}}
+                            </p>
+                            <a href="" class="btn btn-primary">Go somewhere</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+{% endblock %}
+    
     
