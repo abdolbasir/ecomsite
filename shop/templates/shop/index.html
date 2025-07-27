@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
+
+
+{% block css-files %}
+    <link rel="stylesheet" href="{% static 'shop/styles.css' %}">
+{% endblock %}
+    
 
 
 {% block title %}
@@ -9,24 +16,37 @@
 {% block content %}
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <form class="card card-sm">
+                    <div class="card-body row align-items-center d-flex">
+                        <div class="col">
+                            <input class="form-control form-control-border-less" 
+                            name="item_name" type="search" placeholder="Search for products" aria-label="Search">  
+                        </div>
+                        <div class="col-1">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
             {% for product in products %}
                 <div class="col-md-3">
-                    <div class="card">
+                    <div class="card h-100">
                         <img src="media/{{product.image}}" alt="" class="card-img-top">
                         <div class="card-body">
-                            <h3 class="card-title">
+                            <h5 class="card-title">
                                 {{product.title}}
-                            </h3>
+                            </h5>
                             <p class="card-text">
                                 $ {{product.price}}
                             </p>
-                            <a href="" class="btn btn-primary">Go somewhere</a>
-                            
+                            <a href="" class="btn btn-primary">Go somewhere</a> 
                         </div>
                     </div>
                 </div>
             {% endfor %}
-            
         </div>
     </div>
 {% endblock %}
