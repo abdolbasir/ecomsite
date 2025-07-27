@@ -6,6 +6,7 @@ class ProductsView(ListView):
     model = Product
     template_name ="shop/index.html"
     context_object_name = "products"
+    paginate_by = 4
 
     def get_queryset(self):
         queryset = super().get_queryset()
