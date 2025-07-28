@@ -9,11 +9,12 @@
 
 
 {% block title %}
-    Home Page | Ecom Website
+    Home Page | E-com Website
 {% endblock %}
 
 
 {% block content %}
+    
     <div class="container">
         <div class="row pt-3">
             <div class="col-md-12">
@@ -42,12 +43,14 @@
                             <p class="card-text">
                                 $ {{product.price}}
                             </p>
-                            <a href="" class="btn btn-primary">Go somewhere</a> 
+                            <a href="product/{{product.id}}" class="btn btn-outline-dark">See options</a>
+                            <button id="{{product.id}}" class="btn btn-atc btn-dark">Add to Cart</button> 
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
+        
         <div class="row pt-3">
             <div class="col-md-3 offset-md-4">
                 <nav aria-label="Page navigation">
@@ -117,5 +120,11 @@
         </div>
     </div>
 {% endblock %}
+
+
+{% block js-files %}
+    <script src="{% static 'shop/script.js' %}" defer></script> 
+{% endblock %}
+    
     
     

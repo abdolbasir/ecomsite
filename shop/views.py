@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DeleteView
 from .models import Product
 # Create your views here.
 
@@ -14,3 +14,8 @@ class ProductsView(ListView):
         if item_name != "" and item_name is not None:
             queryset = queryset.filter(title__icontains=item_name)
         return queryset
+    
+class ProductDetailView(DeleteView):
+    model = Product
+    template_name = "shop/product_detail.html"
+    context_object_name = "product"
