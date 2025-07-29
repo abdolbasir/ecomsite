@@ -13,6 +13,7 @@
     }
 
  .navbar-nav .nav-link:hover, .btn-dark:hover  {
-      background-color: rgba(255, 255, 255, 0.1); /* light background */
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #212529; /* light background */
       border-radius: 5px;
 }

@@ -1,4 +1,6 @@
+from django.shortcuts import render
 from django.views.generic import ListView, DeleteView
+from django.views import View
 from .models import Product
 # Create your views here.
 
@@ -19,3 +21,8 @@ class ProductDetailView(DeleteView):
     model = Product
     template_name = "shop/product_detail.html"
     context_object_name = "product"
+
+class CheckoutView(View):
+     async def get(self, request):
+        return render(request, "shop/checkout.html")
+
