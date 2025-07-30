@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import ListView, DeleteView
 from django.views import View
 from .models import Product
+from .forms import OrderForm
 # Create your views here.
 
 class ProductsView(ListView):
@@ -23,6 +24,22 @@ class ProductDetailView(DeleteView):
     context_object_name = "product"
 
 class CheckoutView(View):
-     async def get(self, request):
-        return render(request, "shop/checkout.html")
+     template_name = 'shop/checkout.html'
+     def get(self, request):
+        form = OrderForm()
+        return render(request, self.template_name, {'form': form})
+     
+     def post(self, request):
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')  # You can create this URL/template
+        return render(request, self.template_name, {'form': form})
+
+
+class SuccessView(View):
+     template_name = 'shop/success.html'
+     def get(self, request):
+        return render(request, self.template_name)
+    
 

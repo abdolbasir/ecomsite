@@ -10,11 +10,80 @@
 {% block content %}
 <div class="container">
     <div class="row mt-2">
-        <ol id="cart_list" class="list-group list-group-numbered">
+        <ol id="cart_list" class="list-group list-group-numbered ps-2">
             
         </ol>
     </div>
 </div>
+<div class="container">
+    <div class="row justify-content-center my-5 ">
+        <div class="col-md-12 px-2">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Order Form</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        <input type="hidden" name="items" id="items">
+                        <!-- Row 1: name and email -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">{{ form.name.label }}</label>
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                    <div class="text-danger small">{{ form.name.errors|striptags }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">{{ form.email.label }}</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <div class="text-danger small">{{ form.email.errors|striptags }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Address field full width -->
+                        <div class="mb-3">
+                            <label class="form-label">{{ form.address.label }}</label>
+                            {{ form.address }}
+                            {% if form.address.errors %}
+                                <div class="text-danger small">{{ form.address.errors|striptags }}</div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Row 2: city, state, zipcode -->
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">{{ form.city.label }}</label>
+                                {{ form.city }}
+                                {% if form.city.errors %}
+                                    <div class="text-danger small">{{ form.city.errors|striptags }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">{{ form.state.label }}</label>
+                                {{ form.state }}
+                                {% if form.state.errors %}
+                                    <div class="text-danger small">{{ form.state.errors|striptags }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">{{ form.zipcode.label }}</label>
+                                {{ form.zipcode }}
+                                {% if form.zipcode.errors %}
+                                    <div class="text-danger small">{{ form.zipcode.errors|striptags }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success mt-2">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     
 {% endblock %}
 

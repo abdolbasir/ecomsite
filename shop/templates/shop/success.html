@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}
+    Success | E-com website
+{% endblock %}
+
+
+{% block content %}
+     <div class="container">
+        <div class="alert alert-success shadow my-2">
+            <h4 class="alert-heading">Success!</h4>
+            <p>Your Order has been submitted successfully.</p>
+        </div>
+    </div>
+{% endblock %}
+    
+{% block js-files %}
+    <script src="{% static 'shop/success.js' %}" defer></script> 
+{% endblock%}
+    

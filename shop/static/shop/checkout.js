@@ -25,3 +25,6 @@ itemString = `<div class="list-group-item d-flex justify-content-between align-i
                 <div>Total Price</div></div><span>$ ${total_price} </span>
                 </div>`
 $("#cart_list").append(itemString)
+
+$("#items").val(JSON.stringify(cart));
+
