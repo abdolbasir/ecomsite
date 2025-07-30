@@ -10,27 +10,17 @@
 {% block content %}
 <div class="container">
     <div class="row mt-2">
-        <ol class="list-group list-group-numbered">
-            <li class="list-group-item d-flex justify-content-between align-items-start py-3">
-                <div class="ms-2 me-auto">
-                <div class="fw-bold">Subheading</div>
-                </div>
-                <span class="badge bg-primary rounded-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start py-3">
-                <div class="ms-2 me-auto">
-                <div class="fw-bold">Subheading</div>
-                </div>
-                <span class="badge bg-primary rounded-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start py-3">
-                <div class="ms-2 me-auto">
-                <div class="fw-bold">Subheading</div>
-                </div>
-                <span class="badge bg-primary rounded-pill">14</span>
-            </li>
+        <ol id="cart_list" class="list-group list-group-numbered">
+            
         </ol>
     </div>
 </div>
     
 {% endblock %}
+
+
+{% block js-files %}
+    <script src="{% static 'shop/main.js' %}" defer></script> 
+    <script src ="{% static 'shop/checkout.js' %}" defer></script>
+{% endblock%}
+    
