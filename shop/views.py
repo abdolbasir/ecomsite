@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render,redirect
 from django.views.generic import ListView, DeleteView
 from django.views import View
@@ -31,9 +32,22 @@ class CheckoutView(View):
      
      def post(self, request):
         form = OrderForm(request.POST)
+        print(form.is_valid())
         if form.is_valid():
-            form.save()
-            return redirect('success')  # You can create this URL/template
+            items_str = form.cleaned_data['items']
+            items = json.loads(items_str)
+            total_price = 0
+            for key in items:
+                price_str = items[key]['price']
+                price = float(price_str.replace("$", ""))
+                quantity = int(items[key]['quantity'])
+                total_price += price * quantity
+            instance = form.save(commit=False)
+            instance.total = total_price
+            instance.save()
+            return redirect('success') 
+        
+         # You can create this URL/template
         return render(request, self.template_name, {'form': form})
 
 
