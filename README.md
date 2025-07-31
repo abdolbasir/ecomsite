@@ -12,14 +12,23 @@ A simple e-commerce website built with Django for educational purposes. This pro
 
 ## Project Structure
 ecom-site/
+
 ├── ecomsite/ # Main project settings
+
 ├── shop/ # Main app with models, views, forms, templates
+
 ├── static/ # Static files (CSS, JS, images)
+
 ├── media/ # Uploaded media files
+
 ├── templates/ # Project-level templates
+
 ├── requirements.txt # Python dependencies
+
 ├── manage.py # Django management script
+
 └── db.sqlite3 # SQLite database (for development)
+
 
 ## Getting Started
 
