@@ -1,0 +1,19 @@
+.card .card-text {
+    color: green;
+    font-weight: 700;
+}
+
+.card .card-title{
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link {
+      color: white;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+ .navbar-nav .nav-link:hover, .btn-dark:hover  {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #212529; /* light background */
+      border-radius: 5px;
+}
